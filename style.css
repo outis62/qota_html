@@ -167,6 +167,12 @@ body {
     color: #28a745;
     font-style: italic;
     font-size: large;
+    font-weight: 800;
+}
+
+.dayRest{
+    color: blue;
+    font-weight: 800;
 }
 
 .delay-indicator {
@@ -240,6 +246,7 @@ body {
 
 .delayColor{
     color: red;
+    font-weight: 800;
 }
 
 .close {
