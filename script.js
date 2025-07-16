@@ -123,11 +123,10 @@ class CotisationSystem {
             paymentDiv.className = 'person-payment';
 
             const idrissamItem = this.createPaymentItem('idrissa', 'Idrissa', dateString, cellDate);
-            paymentDiv.appendChild(idrissamItem);
-
             const zabreItem = this.createPaymentItem('zabre', 'Zabre', dateString, cellDate);
-            paymentDiv.appendChild(zabreItem);
 
+            paymentDiv.appendChild(idrissamItem);
+            paymentDiv.appendChild(zabreItem);
             dayCell.appendChild(paymentDiv);
 
             this.addDelayIndicator(dayCell, dateString);
@@ -150,15 +149,19 @@ class CotisationSystem {
 
         const today = new Date();
 
-        if (cellDate > today) {
-            checkbox.disabled = true;
-            checkbox.style.cursor = 'not-allowed';
-        } else if (checkbox.checked) {
+        if (cellDate > today || checkbox.checked) {
             checkbox.disabled = true;
             checkbox.style.cursor = 'not-allowed';
         } else {
-            checkbox.disabled = false;
-            checkbox.style.cursor = 'pointer';
+            const previousUnpaid = this.hasUnpaidPreviousDate(person, cellDate);
+            if (previousUnpaid) {
+                checkbox.disabled = true;
+                checkbox.title = "Veuillez cocher les jours précédents d'abord";
+                checkbox.style.cursor = 'not-allowed';
+            } else {
+                checkbox.disabled = false;
+                checkbox.style.cursor = 'pointer';
+            }
         }
 
         checkbox.addEventListener('change', (e) => {
@@ -170,11 +173,7 @@ class CotisationSystem {
 
         if (cellDate.toDateString() === today.toDateString()) {
             const delayAmount = this.calculateDelay(person);
-            if (delayAmount > 0) {
-                name.innerHTML = `${displayName} <span class="amount-due">(${delayAmount.toLocaleString()})</span>`;
-            } else {
-                name.innerHTML = `${displayName} <span class="amount-due">(0)</span>`;
-            }
+            name.innerHTML = `${displayName} <span class="amount-due">(${delayAmount.toLocaleString()})</span>`;
         } else {
             name.textContent = displayName;
         }
@@ -185,9 +184,24 @@ class CotisationSystem {
         return item;
     }
 
+    hasUnpaidPreviousDate(person, currentDate) {
+        const startDate = new Date(2025, 6, 1); // 1er juillet 2025
+        const date = new Date(startDate);
+
+        while (date < currentDate) {
+            const dateString = this.formatDate(date);
+            if (!this.payments[person].has(dateString)) {
+                return true;
+            }
+            date.setDate(date.getDate() + 1);
+        }
+
+        return false;
+    }
+
     calculateDelay(person) {
         const today = new Date();
-        const startDate = new Date(2025, 6, 1); 
+        const startDate = new Date(2025, 6, 1);
         let totalDelay = 0;
 
         for (let date = new Date(startDate); date < today; date.setDate(date.getDate() + 1)) {
@@ -254,8 +268,6 @@ class CotisationSystem {
     showDelayModal(dateString) {
         const date = new Date(dateString);
         const formattedDate = date.toLocaleDateString('fr-FR');
-        const today = new Date();
-
         let message = `Date: ${formattedDate}\n\n`;
         let totalDelay = 0;
 
@@ -297,7 +309,6 @@ class CotisationSystem {
     updateNavButtons() {
         const prevBtn = document.getElementById('prevMonth');
         const nextBtn = document.getElementById('nextMonth');
-
         const today = new Date();
 
         prevBtn.disabled = this.currentYear < 2025 || (this.currentYear === 2025 && this.currentMonth < 6);
