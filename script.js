@@ -173,7 +173,7 @@ class CotisationSystem {
             if (delayAmount > 0) {
                 name.innerHTML = `${displayName} <span class="amount-due">(${delayAmount.toLocaleString()})</span>`;
             } else {
-                name.innerHTML = `${displayName} <span class="amount-due">(1000)</span>`;
+                name.innerHTML = `${displayName} <span class="amount-due">(0)</span>`;
             }
         } else {
             name.textContent = displayName;
