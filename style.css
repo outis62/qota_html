@@ -1,0 +1,385 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    background: #f9f9f9;
+}
+/* 
+.header {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.header button {
+    background: #e0e7ff;
+    border: 1px solid #c7d2fe;
+    color: #1e3a8a;
+    border-radius: 6px;
+    padding: 8px 12px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 4px rgba(30, 58, 138, 0.1);
+}
+
+.header button:hover {
+    background: #c7d2fe;
+    color: #111827;
+    box-shadow: 0 4px 6px rgba(30, 64, 175, 0.15);
+}
+
+.header button:disabled {
+    background: #f1f5f9;
+    color: #94a3b8;
+    cursor: not-allowed;
+    border-color: #e2e8f0;
+    box-shadow: none;
+} */
+
+.header {
+  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+  color: #ffffff;
+  padding: 20px;
+  text-align: center;
+  border-bottom: 4px solid #0ef;
+  box-shadow: 0 4px 10px rgba(0, 255, 255, 0.3);
+}
+
+.header .title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 0 0 10px;
+  font-family: 'Orbitron', sans-serif;
+  letter-spacing: 1.5px;
+  color: #0ef;
+  text-shadow: 0 0 5px #0ef, 0 0 10px #0ef;
+}
+
+.header .month-nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.header button {
+  font-size: 1.2rem;
+  padding: 8px 14px;
+  background-color: #0ef;
+  color: #000;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 5px #0ef, 0 0 15px #0ef60;
+}
+
+.header button:hover {
+  background-color: #00d4ff;
+  transform: scale(1.05);
+  box-shadow: 0 0 10px #00d4ff, 0 0 20px #00d4ff;
+}
+
+#currentMonth {
+  font-weight: bold;
+  font-size: 1.2rem;
+  color: #fff;
+}
+
+
+.stats {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    background-color: #ffffff;
+    padding: 15px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    max-width: 800px;
+    margin: 20px auto;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.stat-item {
+    flex: 1 1 200px;
+    background-color: #f3f4f6;
+    padding: 10px 15px;
+    border-radius: 6px;
+    font-size: 1rem;
+    text-align: center;
+    box-shadow: inset 0 0 3px rgba(0,0,0,0.05);
+    transition: transform 0.2s ease;
+}
+
+.stat-item:hover {
+    transform: translateY(-2px);
+    background-color: #e5e7eb;
+}
+
+
+#currentMonth {
+    font-weight: bold;
+    font-size: 1.2rem;
+    margin: 0 15px;
+}
+
+.calendar {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 5px;
+    max-width: 700px;
+    margin: 0 auto 20px auto;
+    margin-top: 10px;
+}
+
+.day-header {
+    font-weight: bold;
+    text-align: center;
+    background: #ddd;
+    padding: 5px 0;
+    border-radius: 4px;
+}
+
+.day-cell {
+    background: white;
+    border: 1px solid #ccc;
+    min-height: 80px;
+    padding: 5px;
+    border-radius: 4px;
+    position: relative;
+}
+
+.day-cell.other-month {
+    background: #f0f0f0;
+}
+
+.day-cell.today {
+    border: 2px solid #007bff;
+}
+
+.day-cell.past {
+    background: #ffe6e6;
+}
+
+.day-number {
+    font-weight: bold;
+}
+
+.person-payment {
+    margin-top: 5px;
+}
+
+.payment-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 3px;
+}
+
+.payment-item input[type="checkbox"] {
+    margin-right: 5px;
+}
+
+.person-name.idrissa {
+    color: #007bff;
+}
+
+.person-name.zabre {
+    color: #28a745;
+}
+
+.amount-due {
+    color: red;
+    font-weight: bold;
+    margin-left: 5px;
+}
+
+.delay-indicator {
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    background: red;
+    color: white;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    font-size: 0.8rem;
+    line-height: 20px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.stats p {
+    max-width: 700px;
+    margin: 5px auto;
+    font-size: 1rem;
+}
+
+.actions {
+    text-align: center;
+    margin: 15px 0;
+}
+
+.actions button {
+    margin: 0 10px;
+    padding: 8px 15px;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.summary {
+    max-width: 700px;
+    margin: 0 auto 20px auto;
+    background: #fff;
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    white-space: pre-wrap;
+}
+
+.hidden {
+    display: none;
+}
+
+/* Modal styles */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 400px;
+    position: relative;
+}
+
+.close {
+    position: absolute;
+    right: 15px;
+    top: 10px;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+/* Responsive Header navigation */
+.header .month-nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+/* Responsive Calendar */
+.calendar {
+  max-width: 100%;
+  overflow-x: auto; /* Permet un scroll horizontal sur petits écrans */
+}
+
+/* Ajustement des colonnes du calendrier sur écrans plus petits */
+@media (max-width: 720px) {
+  .calendar {
+    grid-template-columns: repeat(7, minmax(40px, 1fr));
+    gap: 4px;
+    margin-top: 10px;
+  }
+
+  .day-cell {
+    min-height: 60px;
+    padding: 4px 3px;
+    font-size: 0.85rem;
+  }
+
+  .day-header {
+    padding: 4px 0;
+    font-size: 0.85rem;
+  }
+
+  .payment-item {
+    font-size: 0.75rem;
+  }
+
+  .payment-item input[type="checkbox"] {
+    width: 14px;
+    height: 14px;
+  }
+
+  .delay-indicator {
+    width: 18px;
+    height: 18px;
+    font-size: 0.7rem;
+    line-height: 18px;
+  }
+}
+
+/* Responsive stats : alignement en colonne sur mobile */
+.stats {
+  max-width: 100%;
+  padding: 10px 15px;
+  box-sizing: border-box;
+  gap: 12px;
+}
+
+@media (max-width: 600px) {
+  .stats {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .stat-item {
+    flex: none;
+    width: 100%;
+    font-size: 0.9rem;
+    padding: 12px 10px;
+  }
+}
+
+/* Responsive buttons dans actions */
+.actions button {
+  margin: 0 8px;
+  padding: 8px 12px;
+  font-size: 0.9rem;
+  border-radius: 6px;
+  transition: background-color 0.3s ease;
+}
+
+@media (max-width: 500px) {
+  .actions {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin: 15px auto;
+    max-width: 300px;
+  }
+
+  .actions button {
+    margin: 0;
+    width: 100%;
+  }
+}
+
+/* Responsive modal */
+.modal-content {
+  width: 95%;
+  max-width: 400px;
+  padding: 15px 20px;
+}
+
+/* Pour que #currentMonth soit bien centré dans header sur mobile */
+@media (max-width: 480px) {
+  #currentMonth {
+    font-size: 1rem;
+    margin: 0 10px;
+  }
+}

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Suivi de Cotisations</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&display=swap" rel="stylesheet" />
+
+</head>
+
+<body>
+ <div class="header">
+  <h1 class="title">🪐 Suivi de Cotisations</h1>
+  <div class="month-nav">
+    <button id="prevMonth">&#8592;</button>
+    <span id="currentMonth"></span>
+    <button id="nextMonth">&#8594;</button>
+  </div>
+</div>
+
+
+  <div id="calendar" class="calendar"></div>
+
+  <div class="stats">
+    <div class="stat-item">
+      <strong>Jours restants :</strong> <span id="daysRemaining"></span>
+    </div>
+    <div class="stat-item">
+      <strong>Montant total attendu :</strong> <span id="totalExpected"></span> FCFA
+    </div>
+    <div class="stat-item">
+      <strong>Retard Idrissa :</strong> <span id="delayIdrissa"></span> FCFA
+    </div>
+    <div class="stat-item">
+      <strong>Retard Zabre :</strong> <span id="delayZabre"></span> FCFA
+    </div>
+  </div>
+
+  <div id="summarySection" class="summary hidden">
+    <pre id="summaryText"></pre>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
