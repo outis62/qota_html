@@ -171,9 +171,9 @@ class CotisationSystem {
         if (cellDate.toDateString() === today.toDateString()) {
             const delayAmount = this.calculateDelay(person);
             if (delayAmount > 0) {
-                name.innerHTML = `${displayName} <span class="amount-due">(${delayAmount.toLocaleString()} FCFA)</span>`;
+                name.innerHTML = `${displayName} <span class="amount-due">(${delayAmount.toLocaleString()})</span>`;
             } else {
-                name.innerHTML = `${displayName} <span class="amount-due">(1000 FCFA)</span>`;
+                name.innerHTML = `${displayName} <span class="amount-due">(1000)</span>`;
             }
         } else {
             name.textContent = displayName;
@@ -187,7 +187,7 @@ class CotisationSystem {
 
     calculateDelay(person) {
         const today = new Date();
-        const startDate = new Date(2025, 6, 1); // 1er juillet 2025
+        const startDate = new Date(2025, 6, 1); 
         let totalDelay = 0;
 
         for (let date = new Date(startDate); date < today; date.setDate(date.getDate() + 1)) {
@@ -260,16 +260,16 @@ class CotisationSystem {
         let totalDelay = 0;
 
         if (!this.payments.idrissa.has(dateString)) {
-            message += `Idrissa: Retard = ${this.dailyAmount} FCFA\n`;
+            message += `Idrissa: Retard = ${this.dailyAmount}\n`;
             totalDelay += this.dailyAmount;
         }
 
         if (!this.payments.zabre.has(dateString)) {
-            message += `Zabre: Retard = ${this.dailyAmount} FCFA\n`;
+            message += `Zabre: Retard = ${this.dailyAmount}\n`;
             totalDelay += this.dailyAmount;
         }
 
-        message += `\nTotal pour cette date: ${totalDelay} FCFA`;
+        message += `\nTotal pour cette date: ${totalDelay}`;
 
         document.getElementById('delayMessage').innerHTML = message.replace(/\n/g, '<br>');
         document.getElementById('delayModal').style.display = 'block';

@@ -3,38 +3,6 @@ body {
     margin: 20px;
     background: #f9f9f9;
 }
-/* 
-.header {
-    text-align: center;
-    margin-bottom: 10px;
-}
-
-.header button {
-    background: #e0e7ff;
-    border: 1px solid #c7d2fe;
-    color: #1e3a8a;
-    border-radius: 6px;
-    padding: 8px 12px;
-    font-size: 1rem;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    box-shadow: 0 2px 4px rgba(30, 58, 138, 0.1);
-}
-
-.header button:hover {
-    background: #c7d2fe;
-    color: #111827;
-    box-shadow: 0 4px 6px rgba(30, 64, 175, 0.15);
-}
-
-.header button:disabled {
-    background: #f1f5f9;
-    color: #94a3b8;
-    cursor: not-allowed;
-    border-color: #e2e8f0;
-    box-shadow: none;
-} */
 
 .header {
   background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
@@ -195,6 +163,12 @@ body {
     margin-left: 5px;
 }
 
+.totalAmount{
+    color: #28a745;
+    font-style: italic;
+    font-size: large;
+}
+
 .delay-indicator {
     position: absolute;
     bottom: 5px;
@@ -242,7 +216,6 @@ body {
     display: none;
 }
 
-/* Modal styles */
 .modal {
     position: fixed;
     top: 0;
@@ -265,6 +238,10 @@ body {
     position: relative;
 }
 
+.delayColor{
+    color: red;
+}
+
 .close {
     position: absolute;
     right: 15px;
@@ -272,7 +249,7 @@ body {
     font-size: 1.5rem;
     cursor: pointer;
 }
-/* Responsive Header navigation */
+
 .header .month-nav {
   display: flex;
   justify-content: center;
@@ -281,13 +258,11 @@ body {
   flex-wrap: wrap;
 }
 
-/* Responsive Calendar */
 .calendar {
   max-width: 100%;
-  overflow-x: auto; /* Permet un scroll horizontal sur petits écrans */
+  overflow-x: auto; 
 }
 
-/* Ajustement des colonnes du calendrier sur écrans plus petits */
 @media (max-width: 720px) {
   .calendar {
     grid-template-columns: repeat(7, minmax(40px, 1fr));
@@ -323,7 +298,6 @@ body {
   }
 }
 
-/* Responsive stats : alignement en colonne sur mobile */
 .stats {
   max-width: 100%;
   padding: 10px 15px;
@@ -345,7 +319,6 @@ body {
   }
 }
 
-/* Responsive buttons dans actions */
 .actions button {
   margin: 0 8px;
   padding: 8px 12px;
@@ -369,14 +342,12 @@ body {
   }
 }
 
-/* Responsive modal */
 .modal-content {
   width: 95%;
   max-width: 400px;
   padding: 15px 20px;
 }
 
-/* Pour que #currentMonth soit bien centré dans header sur mobile */
 @media (max-width: 480px) {
   #currentMonth {
     font-size: 1rem;
